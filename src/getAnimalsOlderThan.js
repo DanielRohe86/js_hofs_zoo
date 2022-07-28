@@ -1,4 +1,4 @@
-const data = require('../data/zoo_data');
+/* const data = require('../data/zoo_data');
 const { species } = require('../data/zoo_data');
 
 const arrayOfSpecies = { species }.species;
@@ -39,4 +39,4 @@ console.log(getAnimalsOlderThan('lions', 10));
 // https://stackoverflow.com/questions/35325767/map-an-array-of-arrays
 
 //COMPARAR OS DOIS ARRAYS PELO ÍNDICE DE CADA UM DOS SEUS ELEMENTOS
-// https://www.w3schools.com/jsref/jsref_findindex.asp
+// https://www.w3schools.com/jsref/jsref_findindex.asp */

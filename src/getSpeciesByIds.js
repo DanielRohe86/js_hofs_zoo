@@ -1,4 +1,4 @@
-const { species } = require('../data/zoo_data');
+/* const { species } = require('../data/zoo_data');
 const data = require('../data/zoo_data');
 
 const arrayOfSpecies = { species }.species;
@@ -8,7 +8,7 @@ function getSpeciesByIds(ids) {
   const idAnimals = arrayOfSpecies.map((ids) => {
     let newArray;
     newArray = ids.id});
-    
+
     const idNames = arrayOfSpecies.map((ids) => {
       let newArray;
       newArray = ids.names
@@ -17,7 +17,7 @@ function getSpeciesByIds(ids) {
   if (idAnimals === [ ]) {
     return [];
   }
-     return idNames;   
+     return idNames;
 }
 
 // TENTATIVA 1
@@ -36,8 +36,8 @@ function getSpeciesByIds(ids) {
 
 // console.log(species[0].name);
 // console.log(data)
-// console.log(arrayOfSpecies[0])
+console.log(arrayOfSpecies[0])
 // console.log(result); FUNCIONA
-console.log(getSpeciesByIds()) /* FUNCIONA, MAS NÃO QUANDO PASSA PARA DENTRO DA FUNÇÃO COM RETORNO INTERNO - FUNCIONA EM UMA LINHA, MAS NÃO PASSA NO LINTER */
+// console.log(getSpeciesByIds()) /* FUNCIONA, MAS NÃO QUANDO PASSA PARA DENTRO DA FUNÇÃO COM RETORNO INTERNO - FUNCIONA EM UMA LINHA, MAS NÃO PASSA NO LINTER */
 
 // module.exports = getSpeciesByIds;

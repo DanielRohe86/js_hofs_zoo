@@ -27,12 +27,12 @@ module.exports = getAnimalsOlderThan;
 // console.log(residentAnimals[0][0].age);
 // console.log(arrayOfSpecies);
 // console.log(residentAnimals);  Retorna neste formato { name: 'Zena', sex: 'female', age: 12 },
-// console.log(all); 
-console.log(animals); 
-// console.log(residents); 
-console.log(animalAges[0]); 
+// console.log(all);
+console.log(animals);
+// console.log(residents);
+console.log(animalAges[0]);
 
-console.log(getAnimalsOlderThan('lions', 10)); 
+console.log(getAnimalsOlderThan('lions', 10));
 
 // MAP de MAP:
 // https://forum.freecodecamp.org/t/how-to-map-a-subarray-or-nested-array/137761

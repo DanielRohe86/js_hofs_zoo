@@ -5,14 +5,7 @@ const arrayOfSpecies = { species }.species;
 
 function getSpeciesByIds(ids) {
 
-  const idAnimals = arrayOfSpecies.map((ids) => {
-    let newArray;
-    newArray = ids.id});
-
-    const idNames = arrayOfSpecies.map((ids) => {
-      let newArray;
-      newArray = ids.names
-      return newArray});
+  const idAnimals = arrayOfSpecies.map((element) => newArray = element.name)
 
   if (idAnimals === [ ]) {
     return [];

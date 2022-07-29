@@ -28,8 +28,8 @@ function getEmployeeByName(employeeName) {
   return {};
 }
 
-// console.log(arrayOfEmployees[0]);
-// console.log(employeeFirstName);
+console.log(arrayOfEmployees);
+console.log(employeeFirstName);
 // console.log(employeeLastName);
 // console.log(getEmployeeByName('Wilburn'));
 

@@ -66,7 +66,7 @@ function getRelatedEmployees(managerId) {
 // console.log(listOfManagers);
 // console.log(arrayOfEmployees);
 // console.log(isManager('e7d4524-363c-416a-8759-8aa7e50c0992'));
-console.log(getRelatedEmployees('e7d4524-363c-416a-8759-8aa7e50c0992'));
+// console.log(getRelatedEmployees('e7d4524-363c-416a-8759-8aa7e50c0992'));
 // console.log(arrayOfEmployees);
 // console.log(arrayOfId);
 // console.log(employeeManagers);

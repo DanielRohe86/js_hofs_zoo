@@ -9,6 +9,9 @@ function countEntrants(entrants) {
 }
 
 function calculateEntry(entrants) {
+  if (!entrants || entrants === []) {
+    return 0;
+  }
   const childProfit = countEntrants(entrants).child * data.prices.child;
   const adultProfit = countEntrants(entrants).adult * data.prices.adult;
   const seniorProfit = countEntrants(entrants).senior * data.prices.senior;

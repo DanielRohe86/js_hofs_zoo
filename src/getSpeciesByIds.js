@@ -5,13 +5,17 @@ const arrayOfSpecies = { species }.species;
 
 function getSpeciesByIds(ids) {
 
-  const idAnimals = arrayOfSpecies.map((element) => newArray = element.name)
+  if (ids
 
-  if (idAnimals === [ ]) {
+  const animalId = arrayOfSpecies.filter((element)=> element.id.includes(ids))
+
+  return animalId.map((element) => newArray = element.name)
+
+  if (!ids) {
     return [];
   }
-     return idNames;
-}
+    return animalName;
+} */
 
 // TENTATIVA 1
 // const result = arrayOfSpecies.map((element) => {
@@ -29,8 +33,10 @@ function getSpeciesByIds(ids) {
 
 // console.log(species[0].name);
 // console.log(data)
-console.log(arrayOfSpecies[0])
+// console.log(arrayOfSpecies)
 // console.log(result); FUNCIONA
 // console.log(getSpeciesByIds()) /* FUNCIONA, MAS NÃO QUANDO PASSA PARA DENTRO DA FUNÇÃO COM RETORNO INTERNO - FUNCIONA EM UMA LINHA, MAS NÃO PASSA NO LINTER */
 
 // module.exports = getSpeciesByIds;
+
+// console.log(animalId);

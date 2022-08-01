@@ -29,7 +29,7 @@ describe('Testes da função HandlerElephants', () => {
     expect(handlerElephants('averageAge')).toBeCloseTo(10.5);
   });
 
-  // it('test 8 - ', () => {
-
-  // });
+  it('test 8 - retorno null', () => {
+    expect(handlerElephants('')).toBe(null);
+  });
 });

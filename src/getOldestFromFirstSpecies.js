@@ -87,7 +87,6 @@ function getOldestFromFirstSpecies(id) {
     .reduce((oldest, age) => ((oldest > age) ? oldest : age), []);
 
   return Object.values(allAnimals.find((element) => element.age === oldestAge));
-  
 }
 
 console.log(getOldestFromFirstSpecies('9e7d4524-363c-416a-8759-8aa7e50c0992'));

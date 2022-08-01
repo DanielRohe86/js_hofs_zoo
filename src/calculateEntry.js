@@ -9,7 +9,7 @@ function countEntrants(entrants) {
 }
 
 function calculateEntry(entrants) {
-  if (!entrants || entrants === []) {
+  if (!entrants || !entrants[0]) {
     return 0;
   }
   const childProfit = countEntrants(entrants).child * data.prices.child;
@@ -34,7 +34,7 @@ function calculateEntry(entrants) {
 // console.log(ages);
 // RETORNO: [ 5, 5, 5, 18, 18, 50 ]
 
-// console.log(countEntrants(entrants));
+// console.log(countEntrants(entrants).child);
 // RETORNO: { child: 3, adult: 2, senior: 1 }
 
 module.exports = { calculateEntry, countEntrants };

@@ -40,19 +40,22 @@ const listOfManagers = [...new Set(tempListOfManagers())];
 function isManager(id) {
   const manager = listOfManagers.includes(id);
   if (manager === false) {
-    throw new Error('O id inserido não é de uma pessoa colaboradora gerente!');
+    return false;
+  }
+  if (manager === true) {
+    return true;
   }
 }
 
 function getRelatedEmployees(managerId) {
-  try {
-    isManager(managerId);
+  if (isManager(managerId) === true) {
     const filteredManagers = arrayOfEmployees
       .filter((element) => element.managers.includes(managerId));
     const fullName = filteredManagers.map((element) => `${element.firstName} ${element.lastName}`);
     return fullName;
-  } catch (e) {
-    return e.message;
+  }
+  if (isManager(managerId) === false) {
+    throw new Error('O id inserido não é de uma pessoa colaboradora gerente!');
   }
 }
 

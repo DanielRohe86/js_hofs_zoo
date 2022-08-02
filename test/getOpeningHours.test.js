@@ -30,19 +30,23 @@ describe('Testes da função getOpeningHours', () => {
       });
   });
 
-  it('test 6 - erro na hora', () => {
-    expect(getOpeningHours('Monday', '13:12-am')).toThrow('The hour must be between 0 and 12');
+  it('test 6 - erro no dia da semana', () => {
+    expect(() => getOpeningHours('Monday', 'aa:bb-am')).toThrow('The hour should represent a number');
   });
 
   it('test 7 - erro nos minutos', () => {
-    expect(getOpeningHours('Monday', '12:61-am')).toThrow('The minutes must be between 0 and 59');
+    expect(() => getOpeningHours('Monday', '12:61-am')).toThrow('The minutes must be between 0 and 59');
   });
 
-  it('test 8 - erro no dia da semana', () => {
-    expect(getOpeningHours('NoDay', '12:12-am')).toThrow('The NoDay should represent a number');
+  it('test 8 - erro na hora', () => {
+    expect(() => getOpeningHours('Monday', '13:12-am')).toThrow('The hour must be between 0 and 12');
   });
 
   it('test 9 - erro na sigla', () => {
-    expect(getOpeningHours('Monday', '12:12-mm')).toThrow('The abbreviation must be \'AM\' or \'PM\'');
+    expect(() => getOpeningHours('Monday', '12:12-mm')).toThrow('The abbreviation must be \'AM\' or \'PM\'');
+  });
+
+  it('test 10 - erro dayError', () => {
+    expect(() => getOpeningHours('Noday', '12:12-mm')).toThrow('The day must be valid. Example: Monday');
   });
 });

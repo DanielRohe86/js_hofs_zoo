@@ -1,27 +1,114 @@
-/* const data = require('../data/zoo_data');
+const data = require('../data/zoo_data');
 const { species } = require('../data/zoo_data');
 
 const arrayOfSpecies = species;
 const listOfSpecies = arrayOfSpecies.map((element) => element.name);
 const residentSpecies = arrayOfSpecies.map((element) => element.residents);
 const residentFullLength = arrayOfSpecies.map((element) => element.residents.length);
+const femalesOnly = residentSpecies
+  .map((animal) => animal
+    .filter((element) => (element.sex === 'female')));
+const femalesLength = femalesOnly.map((element) => element.length);
 
-TENTATIVA 1 (AJUSTADA POSTERIORMENTE) OK
-resultado: { lions: 4 }
+// console.log(residentSpecies);
+// console.log(residentFullLength);
+// const object = (species, fullLength) => species.map((animal, index) => (
+// { [animal]: fullLength[index], }
+// ));
+// const arrayResult = object(listOfSpecies, residentFullLength);
+// RESULTADO
+// [
+//   { lions: 4 },
+//   { tigers: 2 },
+//   { bears: 3 },
+//   { penguins: 4 },
+//   { otters: 4 },
+//   { frogs: 2 },
+//   { snakes: 2 },
+//   { elephants: 4 },
+//   { giraffes: 6 }
+// ]
 
-const callbackLoop = (animal) => {
-  const whichAnimal = Object.values(animal);
-  for (let i = 0; i < whichAnimal.length; i += 1) { ERRO NO LINTER
-    return whichAnimal[i];
-  }
-};
+// const exerciseOne = arrayResult.map((element) => element[]);
+// console.log(arrayResult);
+// console.log(exerciseOne);
+
+// const listOfSpecies = arrayOfSpecies.map((element) => element.name);
+// const residentFullLength = arrayOfSpecies.map((element) => element.residents.length);
+
+// const object = {};
+
+// listOfSpecies.forEach((element, index) => {
+//   object[element] = residentFullLength[index];
+// });
+
+// console.log(object);
+// https://bobbyhadz.com/blog/javascript-create-object-from-two-arrays
+// RETORNO
+// {
+//   lions: 4,
+//   tigers: 2,
+//   bears: 3,
+//   penguins: 4,
+//   otters: 4,
+//   frogs: 2,
+//   snakes: 2,
+//   elephants: 4,
+//   giraffes: 6
+// }
+
+// TENTATIVA 1 (AJUSTADA POSTERIORMENTE)
+// resultado: { lions: 4 }
+
+// const callbackLoop = (animal) => {
+//   const whichAnimal = Object.values(animal);
+//   for (let i = 0; i < whichAnimal.length; i += 1) {
+//     return whichAnimal[i];
+//   }
+// };
+
+// const callbackLoop = (animal) => {
+//   const whichAnimal = Object.values(animal);
+//   for (animal of whichAnimal)
+//   return animal;
+//   };
+
+// const obj = data.species.reduce((accumulator, {name}, index) => {
+//   return {...accumulator, [name]: residentFullLength[index]};
+// }, {});
+
+// console.log(Object.keys(obj));
 
 function countAnimals(animal) {
-  const animalIndex = listOfSpecies.indexOf(callbackLoop(animal));
-  // console.log(animalIndex);
-  const result = `{ ${callbackLoop(animal)}: ${residentFullLength[animalIndex]} }`;
-  return result;
-} */
+  if (!animal) {
+    const obj = data.species
+      .reduce((acc, { name }, index) => ({ ...acc, [name]: residentFullLength[index] }), {});
+    return obj;
+  }
+  if (Object.keys(animal).length === 1) {
+    const animalIndex = listOfSpecies.indexOf(animal.specie);
+    const resultOne = residentFullLength[animalIndex];
+    return resultOne;
+  }
+  if (Object.keys(animal).length === 2) {
+    const animalIndex = listOfSpecies.indexOf(animal.specie);
+    const resultTwo = femalesLength[animalIndex];
+    return resultTwo;
+  }
+}
+
+// console.log(femalesOnly);
+// console.log(femalesLength);
+
+// console.log(residentSpecies);
+
+/* const verifySex = () => (
+  data.species.filter((people) => (people.age < 18))
+); */
+
+// console.log(verifyAgeDrive(objPeople));
+
+// console.log(countAnimals());
 
 // console.log(animalIndex);
 // console.log(arrayOfSpecies);
@@ -29,7 +116,7 @@ function countAnimals(animal) {
 // console.log(residentSpecies);
 // console.log(residentFullLength);
 
-// console.log(countAnimals({ specie: 'lions' }));
+// console.log(countAnimals());
 
 // return `${listOfSpecies[index]}, ${residentFullLength[index]}`
 
@@ -88,4 +175,4 @@ function countAnimals(animal) {
 
 // console.log(countAnimals({ specie: 'giraffes', sex: 'female' }));
 
-// module.exports = countAnimals;
+module.exports = countAnimals;

@@ -101,7 +101,7 @@ function getScheduleHoursAnimal(scheduleTarget) {
     } };
   }
 
-  const animalsOfDay = (scheduleTarget) => {
+  const animalsOfDay = () => {
     const animalsByDay = zooSpecies
       .filter((specie) => specie.availability.includes(scheduleTarget))
       .map((animal) => animal.name);
@@ -110,14 +110,12 @@ function getScheduleHoursAnimal(scheduleTarget) {
 
   return { [scheduleTarget]: {
     officeHour: `Open from ${hours.open}am until ${hours.close}pm`,
-    exhibition: animalsOfDay(scheduleTarget),
+    exhibition: animalsOfDay(),
   } };
 }
 
-const fullSchedule = () => {
-  return zooDays
-    .reduce((acc, curr) => ({ ...acc, ...getScheduleHoursAnimal(curr) }), {});
-};
+const fullSchedule = () => zooDays
+  .reduce((acc, curr) => ({ ...acc, ...getScheduleHoursAnimal(curr) }), {});
 
 // RESPOSTA FINAL
 

@@ -86,26 +86,16 @@ const zooDays = Object.keys(data.hours);
 
 // module.exports = getSchedule;
 
-//  RESPOSTA
-/* function getSchedule(scheduleTarget) {
+//  CALLBACKS
 
-  }
-  // if (!scheduleTarget || !zooDays.includes(scheduleTarget)) {
-  //   return
-
-  } */
-
-// CALLBACKS
-
-const getAnimalinThatDay = (scheduleTarget) => {
+function getAnimalinThatDay(scheduleTarget) {
   const targetAnimal = zooSpecies.filter((animal) => (animal.name === scheduleTarget));
   return targetAnimal[0].availability;
-};
+}
 
-const getScheduleHoursAnimal = (scheduleTarget) => {
+function getScheduleHoursAnimal(scheduleTarget) {
   const hours = data.hours[scheduleTarget];
-  const dayAnimal = zooDays.find((element) => element === scheduleTarget);
-  if (dayAnimal === 'Monday') {
+  if (scheduleTarget === 'Monday') {
     return { [scheduleTarget]: {
       officeHour: 'CLOSED', exhibition: 'The zoo will be closed!',
     } };
@@ -122,10 +112,11 @@ const getScheduleHoursAnimal = (scheduleTarget) => {
     officeHour: `Open from ${hours.open}am until ${hours.close}pm`,
     exhibition: animalsOfDay(scheduleTarget),
   } };
-};
+}
 
 const fullSchedule = () => {
-  zooDays.reduce((acc, curr) => ({ ...acc, ...getScheduleHoursAnimal(curr) }), {});
+  return zooDays
+    .reduce((acc, curr) => ({ ...acc, ...getScheduleHoursAnimal(curr) }), {});
 };
 
 // RESPOSTA FINAL

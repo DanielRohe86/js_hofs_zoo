@@ -1,47 +1,66 @@
-const data = require('../data/zoo_data');
+const data = require('../data/zoo_data'); // Import the data object
 
-function getEmployeesCoverage() {
-  // seu código aqui
+function getEmployeesCoverage(options = {}) {
+  const { name, id } = options;
+
+  if (name) {
+    const employee = data.employees.find(
+      (emp) =>
+        emp.firstName.includes(name) || emp.lastName.includes(name),
+    );
+
+    if (!employee) {
+      throw new Error('Informações inválidas');
+    }
+
+    const fullName = `${employee.firstName} ${employee.lastName}`;
+    const species = employee.responsibleFor.map((animalId) =>
+      data.species.find((species) => species.id === animalId).name);
+    const locations = employee.responsibleFor.map((animalId) =>
+      data.species.find((species) => species.id === animalId).location);
+
+    return {
+      id: employee.id,
+      fullName,
+      species,
+      locations,
+    };
+  } if (id) {
+    // Search for employees by id
+    const employee = data.employees.find((emp) => emp.id === id);
+
+    if (!employee) {
+      throw new Error('Informações inválidas');
+    }
+
+    const fullName = `${employee.firstName} ${employee.lastName}`;
+    const species = employee.responsibleFor.map((animalId) =>
+      data.species.find((species) => species.id === animalId).name);
+    const locations = employee.responsibleFor.map((animalId) =>
+      data.species.find((species) => species.id === animalId).location);
+
+    return {
+      id: employee.id,
+      fullName,
+      species,
+      locations,
+    };
+  }
+  // Return coverage information for all employees
+  return data.employees.map((employee) => {
+    const fullName = `${employee.firstName} ${employee.lastName}`;
+    const species = employee.responsibleFor.map((animalId) =>
+      data.species.find((species) => species.id === animalId).name);
+    const locations = employee.responsibleFor.map((animalId) =>
+      data.species.find((species) => species.id === animalId).location);
+
+    return {
+      id: employee.id,
+      fullName,
+      species,
+      locations,
+    };
+  });
 }
-
-// console.log(data.employees);
-
-// const filterFirstName = (parameter) => {
-//   const myFilter = data.employees.filter((element) => (element.firstName === parameter));
-//   const animalsManaged = myFilter[0].responsibleFor;
-
-//   const mappedSpecies = data.species.map((element) => element.id. === animalsManaged);
-//   console.log(mappedSpecies);
-
-//   // const findLocations = data.species.filter((element) => (element.id))
-
-//   // const findLocations = myFilter[0].responsibleFor
-
-//   return object = {
-//     id: myFilter[0].id,
-//     FullName: `${myFilter[0].firstName} ${myFilter[0].lastName}`,
-//     species: myFilter[0].responsibleFor,
-//     // locations: undefined,
-//   }
-// }
-
-// console.log(filterFirstName('Nigel'));
-
-// const mappedEmployeesByFirstName = data.employees.map((element) => element.firstName);
-// console.log(mappedEmployeesByFirstName);
-
-// console.log(filterTest('Nigel'));
-
-// parâmetros
-// objeto com NAME ou com ID
-
-// RETORNO
-// objeto:
-// employees
-// -Id
-// -FullName
-// -responsibleFor
-// species
-// -location
 
 module.exports = getEmployeesCoverage;

@@ -17,7 +17,6 @@ Remember that you can consult our content on Git & GitHub and our Blog - Git & G
 <details>
 <summary><strong>🧑‍💻 What Should Be Developed</strong></summary><br />
 Knowing your skills with ES6, Higher Order Functions, and tests, the city's government has given you an important mission: organize information about the zoo! 🐘
-=======
 
 You will be responsible for developing functions that retrieve information about the zoo's animals, such as species and place of origin. Additionally, you will also gather data about the people who collaborate in the maintenance and care of the zoo. 🧑‍🌾
 
@@ -138,7 +137,6 @@ You can also install the `ESLint` plugin in `VSCode`. To do this, simply downloa
 If you have any questions, check out the material on the platform about [ESLint and Stylelint](https://app.betrybe.com/course/real-life-engineer/eslint).
 
 ⚠️ **PULL REQUESTS WITH ISSUES IN THE LINTER WILL NOT BE EVALUATED. BE CAREFUL TO RESOLVE THEM BEFORE FINALIZING DEVELOPMENT!** ⚠️
-
 
 </details>
 
